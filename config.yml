@@ -1,0 +1,9 @@
+development:
+  logging_path : ./logs/hdhomerun_service.log
+  logging_level : 'debug'
+  http_server_port : 3030
+
+production:
+  logging_path : ./logs/hdhomerun_service.log
+  logging_level : 'info'
+  http_server_port : 8080
