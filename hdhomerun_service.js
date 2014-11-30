@@ -29,6 +29,14 @@ function setup_routes(app) {
         hdhr.set_channel(request.params['tuner_number'], request.params['channel_number'], simple_response_handler(response));
     });
 
+    app.get('/tuner/:tuner_number/channel/up', function(request, response) {
+        hdhr.channel_up(request.params['tuner_number'], simple_response_handler(response));
+    });
+
+    app.get('/tuner/:tuner_number/channel/down', function(request, response) {
+        hdhr.channel_down(request.params['tuner_number'], simple_response_handler(response));
+    });
+
     app.get('/tuner/:tuner_number/start_stream/:ip_address', function(request, response) {
         hdhr.start_stream(request.params['tuner_number'], request.params['ip_address'] + ':5000', simple_response_handler(response));
     });
@@ -40,4 +48,4 @@ function setup_routes(app) {
 
 rest_base.set_setup_routes_method(setup_routes);
 rest_base.start_server();
-hdhr.discover();
+hdhr.startup();
