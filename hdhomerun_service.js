@@ -17,8 +17,8 @@ function setup_routes(app) {
         response.status(200).send('pongy');
     });
 
-    app.get('/status', function(request, response) {
-        hdhr.get_status(0, simple_response_handler(response));
+    app.get('/tuner/:tuner_number/status', function(request, response) {
+        hdhr.get_status(request.params['tuner_number'], simple_response_handler(response));
     });
 
     app.get('/tuner/:tuner_number/channel/:channel_number', function(request, response) {
