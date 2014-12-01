@@ -25,16 +25,16 @@ function setup_routes(app) {
         hdhr.get_status(request.params['tuner_number'], simple_response_handler(response));
     });
 
-    app.get('/tuner/:tuner_number/channel/:channel_number', function(request, response) {
-        hdhr.set_channel(request.params['tuner_number'], request.params['channel_number'], simple_response_handler(response));
-    });
-
     app.get('/tuner/:tuner_number/channel/up', function(request, response) {
         hdhr.channel_up(request.params['tuner_number'], simple_response_handler(response));
     });
 
     app.get('/tuner/:tuner_number/channel/down', function(request, response) {
         hdhr.channel_down(request.params['tuner_number'], simple_response_handler(response));
+    });
+
+    app.get('/tuner/:tuner_number/channel/:channel_number', function(request, response) {
+        hdhr.set_channel(request.params['tuner_number'], request.params['channel_number'], simple_response_handler(response));
     });
 
     app.get('/tuner/:tuner_number/start_stream/:ip_address', function(request, response) {
